@@ -10,7 +10,20 @@ module.exports = {
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
        { test: /\.html$/, loader: 'raw' },
        { test: /\.styl$/, loader: 'style!css!stylus' },
-       { test: /\.css$/, loader: 'style!css' }
+       { test: /\.css$/, loader: 'style!css' },
+       { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=1000000&mimetype=application/font-woff' },
+       { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=1000000&mimetype=application/font-woff2' },
+       { test: /\.otf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=1000000&mimetype=font/opentype' },
+       { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=1000000&mimetype=application/octet-stream' },
+       { test: /\.eot(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]' },
+       { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=1000000&mimetype=image/svg+xml' },
+       { test: /\.(png|jpg)$/, loader: "file?name=[path][name].[ext]&context=./assets/images"},
+       { test: /\.less$/, loaders: [
+                                      'style',
+                                      'css?sourceMap&minimize',
+                                      'less?sourceMap'
+                                    ]
+}
     ]
   },
   plugins: [
