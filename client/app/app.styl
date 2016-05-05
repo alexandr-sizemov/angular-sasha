@@ -1,3 +1,54 @@
+$lightgrey =  #dfdfdf
+$grey = #b2b2b2
+$greyDarker = #f2f2f2
+$media-panel-height = 400px
+
+body
+  background-color $greyDarker !important
+
 .app
   height 100%
-  background-color $lightBgColor
+  .home-page
+  	background white
+  	padding 30px 10px
+  	margin-top 25px
+
+.page-controls
+  padding 30px 0
+  button
+  	min-width 130px
+  	padding 10px
+  	margin 7px
+  	text-transform uppercase
+  	&:last-child
+  	  margin 0
+  	  border 1px solid #BBB
+  	  background transparent
+
+.display-block
+  display block
+
+.text-white
+	color white
+
+.border-bottom-muted
+	border-bottom 1px solid $lightgrey
+
+.background-grey
+  background-color $grey
+
+.background-grey-darker
+  background $grey
+
+.panel-border-muted
+  border 1px solid $lightgrey
+
+div.panel-upload-media{
+  min-height $media-panel-height
+  .panel-upload-media-title{
+  	margin-top 170px
+  }
+  i{
+  	font-size 2.5em
+  }
+}

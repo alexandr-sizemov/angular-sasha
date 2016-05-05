@@ -1,0 +1,82 @@
+<h4 class="text-primary"> How Can Customers Receive this Service? <br> (add all that apply)<i class="pull-right glyphicon glyphicon-question-sign"></i></h4>
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <label class="text-muted" for="serviceCost">Select Service Delivery/Receiving options:</label>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <select ng-model="deliveryOption" class="form-control ng-pristine ng-valid ng-not-empty ng-touched">
+            <option label="Select & Add Options" class="text-muted" value="" selected="selected">Select & Add Options</option>
+            <option label="Travel to Customer (10 miles)" value="Travel to Customer (10 miles)">Travel to Customer (10 miles)</option>
+            <option label="Customer Comes to Me" value="Customer Comes to Me">Customer Comes to Me</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="text" ng-model="serviceCost" class="form-control" id="serviceCost" placeholder="$ Enter Cost">
+        </div>
+      </div>
+    </div>
+    <h4 class="text-muted"> Turn-around time for the selected option from time ordered: <br> (turn-around time is based on business/operation hours)<i class="pull-right glyphicon glyphicon-question-sign text-primary"></i></h4>
+    <uib-accordion>
+      <uib-accordion-group class="panel-primary" style="background: #f2f2f2;" is-open="vm.turnAroundAccordion['byhm']">
+        <uib-accordion-heading>
+          <div><i ng-class="{'icon-radio-unchecked': !vm.turnAroundAccordion['byhm'],
+                              'icon-radio-checked': vm.turnAroundAccordion['byhm']} "></i> By Hours/Minutes</div>
+        </uib-accordion-heading>
+        <div class="row" style=" padding:0 5px">
+          <div class="col-xs-7">
+            <div class="form-group">
+              <select ng-model="hours" class="form-control ng-pristine ng-valid ng-not-empty ng-touched" placeholder="0-24 Hours">
+                <option class="text-muted" label="0-24 Hours" value="" selected="selected">0-24 Hours</option>
+                <option label="1" value="1 Hour">1</option>
+                <option label="2" value="2 Hour">2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-1">
+            <div class="display-block text-muted" style="padding-top:6px"> and </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <select ng-model="minutes" class="form-control ng-pristine ng-valid ng-not-empty ng-touched" placeholder="0-60 Minutes">
+                <option class="text-muted" label="0-60 Minutes" value="" selected="selected">0-60 Minutes</option>
+                <option label="0 Minute" value="0 Minute">0 Minute</option>
+                <option label="15 Minutes" value="15 Minutes">15 Minutes</option>
+                <option label="30 Minutes" value="30 Minutes">30 Minutes</option>
+                <option label="45 Minutes" value="45 Minutes">45 Minutes</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-muted btn-block background-grey text-white" style="margin-bottom: 10px;" ng-click="vm.addToServiceReceiveList(deliveryOption, serviceCost, hours, minutes)">
+          <i class="glyphicon glyphicon-plus"></i> Add</button>
+        <div class="row border-bottom-muted" ng-repeat="serviceReceiveOption in vm.serviceReceiveList" style="padding:3px 0;margin:0 5px">
+          <div class="col-xs-6">
+            <strong class="text-primary">
+                {{serviceReceiveOption.deliveryOption}}
+              </strong>
+          </div>
+          <div class="col-xs-2">
+            <strong class="text-primary">
+              $ {{serviceReceiveOption.serviceCost}}
+              </strong>
+          </div>
+          <div class="col-xs-4">
+            <strong class="text-primary">
+              $ {{serviceReceiveOption.duration}}
+              </strong>
+            <i class="glyphicon glyphicon-remove pull-right text-muted" ng-click="vm.removeFromServiceReceiveList(serviceReceiveOption.id)"></i>
+          </div>
+        </div>
+      </uib-accordion-group>
+      <uib-accordion-group class="panel-primary" is-open="vm.turnAroundAccordion['byday']">
+        <uib-accordion-heading >
+          <div><i ng-class="{'icon-radio-unchecked': !vm.turnAroundAccordion['byday'],
+                              'icon-radio-checked': vm.turnAroundAccordion['byday']}"></i> By Days</div>
+        </uib-accordion-heading>
+      </uib-accordion-group>
+    </uib-accordion>
+  </div>
+</div>

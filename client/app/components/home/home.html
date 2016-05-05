@@ -1,11 +1,67 @@
-<navbar></navbar>
-<div class="row">
-  <div class="col-lg-6"></div>
-  <div class="col-lg-6">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Title</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Title for Service">
+<div class="container home-page"
+  <div class="row">
+    <div class="col-md-6">
+    	<div class="panel panel-primary text-center panel-upload-media">
+    		<div class="text-primary panel-upload-media-title"><i class="glyphicon glyphicon-plus-sign"></i><br> Upload Images and Video (1)</div>
+    	</div>
+
+    	<slider></slider>
+
+	    <div class="form-group">
+        <label for="description" class="text-primary">Description</label>
+        <textarea type="text" class="form-control" rows="10" id="description" placeholder="Enter Description here..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="policies" class="text-primary">Policies</label>
+        <input type="text" class="form-control" id="policies1" placeholder="Enter Brief Main Policy/Comment 1 (if any)">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="policies2" placeholder="Enter Brief Main Policy/Comment 2 (if any)">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="policies3" placeholder="Enter Brief Main Policy/Comment 3 (if any)">
+      </div>
+      <div class="form-group">
+        <textarea type="text" class="form-control" id="otherPolicies" rows="4" placeholder="Enter Other Policies/Comments"></textarea>
+      </div>
+
     </div>
-    <pricebox></pricebox>
+    <div class="col-md-6">
+
+      <div class="form-group">
+        <label for="title" class="text-primary">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter Title for Service">
+      </div>
+      <div class="form-group">
+        <label class="text-primary">Category</label>
+        <select class="form-control ng-pristine ng-valid ng-not-empty ng-touched" placeholder="Select main category for listing">
+          <option class="text-muted" label="Select main category for listing" value="string:top" selected="selected">Select main category for listing</option>
+          <option label="category A" value="string:category-a">category A</option>
+          <option label="category A" value="string:category-b">category B</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="text-primary">Subcategory & Type</label>
+        <select class="form-control ng-pristine ng-valid ng-not-empty ng-touched" placeholder="Subcategory & Type">
+          <option class="text-muted" label="Subcategory & Type" value="Subcategory & Type" selected="selected">Subcategory & Type</option>
+          <option label="subcat-a" value="subcat a">subcat-a</option>
+          <option label="subcat b" value="subcat b">subcat b</option>
+        </select>
+      </div>
+
+      <type-of-service></type-of-service>
+
+      <pricebox></pricebox>
+
+      <service-provider-selector></service-provider-selector>
+
+    </div>
   </div>
+</div>
+<div class="container text-center page-controls">
+	<button type="button" class="btn btn-muted">Preview</button>
+	<button type="button" class="btn btn-muted">Save draft</button>
+	<button type="button" class="btn btn-primary">Post</button>
+	<button type="button" class="btn pull-right">Cancel</button>
 </div>

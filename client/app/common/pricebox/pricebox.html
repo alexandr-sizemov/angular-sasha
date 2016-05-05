@@ -1,1 +1,38 @@
-	pricebox
+<h4 class="text-primary"> Price <i class="glyphicon glyphicon-question-sign"></i></h4>
+<uib-accordion>
+  <uib-accordion-group class="panel-primary" is-open="vm.priceAccordion['total']">
+    <uib-accordion-heading>
+      <div><i ng-class="{'icon-radio-unchecked': !vm.priceAccordion['total'],
+                              'icon-radio-checked': vm.priceAccordion['total']}"></i> Total amount</div>
+    </uib-accordion-heading>
+    <div class="form-group">
+      <input type="text" class="form-control" id="amount" placeholder="$ Enter Amount">
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <label class="display-block text-muted" style="font-weight: normal;">
+          <input type="checkbox" style="margin: 8px 5px;" class="ng-pristine ng-untouched ng-valid ng-not-empty">Happy Hour Pricing
+        </label>
+      </div>
+      <div class="col-xs-4">
+        <input type="text" ng-model="hhp" class="form-control" id="amount" placeholder="$ Enter Amount">
+      </div>
+      <div class="col-xs-4">
+        <button type="button" class="btn btn-primary btn-block" ng-click="vm.addToPriceList(hhp)">
+          <i class="icon-pencil" style="padding-right: 10px"></i> Happy hours</button>
+      </div>
+    </div>
+    <hr/>
+    <div class="clearfix" ng-repeat="price in vm.priceList">
+      <div class="pull-left text-primary"><strong>$ {{price.amount}}</strong></div>
+      <i class="glyphicon glyphicon-remove pull-right text-muted" style="margin:0 5px;" ng-click="vm.removeFromPriceList(price.id)">
+        </i>
+    </div>
+  </uib-accordion-group>
+  <uib-accordion-group class="panel-primary" is-open="vm.priceAccordion['appBased']">
+    <uib-accordion-heading>
+      <div><i ng-class="{'icon-radio-unchecked': !vm.priceAccordion['appBased'],
+                              'icon-radio-checked': vm.priceAccordion['appBased']}"></i> Appointment-Based Listing</div>
+    </uib-accordion-heading>
+  </uib-accordion-group>
+</uib-accordion>

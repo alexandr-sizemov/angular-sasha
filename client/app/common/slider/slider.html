@@ -1,0 +1,11 @@
+<div style="height: 200px">
+  <uib-carousel active="vm.active" interval="myInterval" no-wrap="noWrapSlides">
+    <uib-slide ng-repeat="slide in vm.slides track by slide.id" index="slide.id">
+      <img ng-src="{{slide.image}}" class="pull-left slider-image">
+      <img ng-src="{{slide.image}}" class="pull-left slider-image">
+      <img ng-src="{{slide.image}}" class="pull-left slider-image">
+      <img ng-src="{{slide.image}}" class="pull-left slider-image">
+      <img ng-src="{{slide.image}}" class="pull-left slider-image">
+    </uib-slide>
+  </uib-carousel>
+</div>
